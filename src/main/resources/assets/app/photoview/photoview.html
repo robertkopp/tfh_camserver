@@ -1,0 +1,49 @@
+<h3>Photosätze</h3>
+<div ng-controller="PhotoViewCtrl">
+    <button class="btn btn-primary" ng-click="takeShot()">Bild machen</button>
+    <table class="table-responsive table table-striped">
+        <thead>
+            <tr>
+                <th>Preview</th>
+                <th>Kundennummer</th>
+                <th>
+                    PhotoSatzId
+                </th>
+                <th>
+                    Zeitpunkt der Aufnahme
+                </th>
+                <th>fertig?</th>
+                 <th>
+                    Download
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="shot in shots | orderBy:'-timeOfShot'">
+                <td>
+                    <img src="api/photocollection/thumb/{{shot.collectionId}}" alt="preview" class="thumbnail"/>
+                </td>
+                <td>
+                    <label for="kdnr_{{shot.collectionId}}"> KundenNr: </label>
+                    <input class="form-control" id="kdnr_{{shot.collectionId}}" ng-model-options="{debounce:200}" ng-change="saveKundennummer(shot)" ng-model="shot.kundennummer"/>
+                </td>
+                <td>
+                    {{shot.collectionId}}
+                </td>
+                <td>
+                    {{shot.timeOfShot| date:'dd.MM.yyyy HH:mm'}}
+                </td>
+                <td>
+                    <span ng-show="shot.shotsReceived===shot.shotsTotal">ja</span>
+                    <span ng-show="shot.shotsReceived!==shot.shotsTotal">nein</span>
+                    ({{shot.shotsReceived}}/{{shot.shotsTotal}})
+                </td>
+                <td>
+                    <a href="api/photocollection/zip/{{shot.collectionId}}">zip</a>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+</div>

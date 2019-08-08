@@ -1,0 +1,105 @@
+
+/* app css stylesheet */
+
+.camstateOk {
+    color: #4cff00;
+}
+
+.camstateError {
+    color:#ff0000
+}
+
+.camstateBusy, .camstateWarning {
+    color:#ffd800
+}
+.thumbnail{
+    width:150px;
+    height:150px;
+    
+}
+/* app css stylesheet */
+
+.saving_label{
+    position:absolute;
+    top:100px;
+    left: 20px;
+    
+}
+
+textarea{
+        width: 100%;
+    height: 300px;
+}
+
+.plantable, .plantable tr, .plantable td{
+    border-style: solid;
+    border-width: 1px;
+    height:50px;
+    text-align: center;
+}
+
+.plantable td:hover{
+    background-color: #ffffaa;
+}
+
+.plantable{
+    width:100%;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.myGrid {
+  width: 100%;
+  height: 400px;
+}
+
+.clickable:hover{
+    cursor: pointer;
+}
+
+.smallGrid {
+  width: 50%;
+  height: 200px;
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}

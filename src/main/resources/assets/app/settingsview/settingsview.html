@@ -1,0 +1,46 @@
+
+<div ng-controller="SettingsViewCtrl">
+
+
+    <div class="container">
+
+        <div class="row">
+            <h3>Settings</h3>
+            <div class="col-md-3">
+                <label for="repeatSelect"> Raspi aussuchen: </label>
+                <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="selectedClientIndex">
+                    <option ng-repeat="option in clients" value="{{$index}}">{{option.hostId}}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="camSelect"> Cam aussuchen: </label>
+                <select name="camSelect" class="form-control" id="camSelect" ng-model="selectedCamIndex">
+                    <option ng-repeat="option in clients[selectedClientIndex].cameras" value="{{$index}}">{{option.cameraId}}</option>
+                </select>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary" ng-click="getImage()" ng-disabled="!selectedCamIndex || !selectedClientIndex">Testbild</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <p ng-show="loadingImage">Lade Bild.. bitte Warten..</p>
+                <div ng-show="imageSource">
+                    <img class=" img-responsive img-thumbnail center-block" ng-src="{{imageSource}}"/>
+                </div>
+            </div>  
+            <div ng-hide="!selectedCamIndex || !selectedClientIndex" class="col-md-6">
+                <button class="btn btn-primary" ng-click="saveSettings">Einstellungen speichern</button>
+                <p ng-show="savingSettings">speichere..</p>
+                <div class="form-group" ng-repeat="(key,value) in settings">
+                    <label for="{{key}}"> {{key}}: </label>
+                    <input class="form-control" id="{{key}}" ng-model="value"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+
+<div ng-controller="ClientDataCtrl" class="container">
+    <div class="row">
+        <div class="col-md-12">
+<h3>Geräte-Status</h3>            
+            
+        </div></div>
+    <div class="row">
+        <div class="col-md-2">
+    <button class="btn btn-primary" ng-click="takeShot()">Bild machen</button>
+    </div>
+        <div class="col-md-4">
+            <h3>Anzahl Raspis:{{gridOptions.data.length}}</h3>
+            
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-12">
+            <div id="recipegrid" ui-grid="gridOptions" ui-grid-selection class="myGrid"></div>
+        </div>
+        </div>
+</div>
